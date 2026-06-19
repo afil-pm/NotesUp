@@ -29,7 +29,7 @@ function EyeIcon({ visible }: { visible: boolean }) {
 
 function FeaturePill({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2.5 border border-white/10 transition-all duration-200 hover:bg-white/15">
+    <div className="flex items-center gap-2.5 rounded-xl bg-white/[0.08] px-3.5 py-2.5 border border-white/[0.08] transition-all duration-200 hover:bg-white/15">
       <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400/20 to-rose-400/20">
         {icon}
       </div>
@@ -78,13 +78,13 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
         <style>{`
           .orb-1, .orb-2, .orb-3 {
             position: absolute; border-radius: 50%;
-            filter: blur(90px); opacity: 0.35;
+            filter: blur(90px); opacity: 0.5;
             animation: orb-float 8s ease-in-out infinite;
             pointer-events: none;
           }
-          .orb-1 { width: 260px; height: 260px; background: #e8793b; top: -70px; right: -50px; }
-          .orb-2 { width: 200px; height: 200px; background: #a855f7; bottom: 140px; left: -60px; animation-delay: -3s; }
-          .orb-3 { width: 180px; height: 180px; background: #f472b6; bottom: -40px; right: 20px; animation-delay: -5s; }
+          .orb-1 { width: 280px; height: 280px; background: #e8793b; top: -90px; right: -70px; }
+          .orb-2 { width: 220px; height: 220px; background: #a855f7; bottom: 140px; left: -70px; animation-delay: -3s; }
+          .orb-3 { width: 200px; height: 200px; background: #f472b6; bottom: -50px; right: 10px; animation-delay: -5s; }
         `}</style>
 
         {/* Decorative warm glow dots */}
@@ -94,8 +94,8 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
 
         <div
           ref={containerRef}
-          className="relative z-10 flex h-full w-full flex-col px-6 pb-8 pt-[48px] backdrop-blur-[10px]"
-          style={{ background: "rgba(255,255,255,0.015)" }}
+          className="relative z-10 flex min-h-screen w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[12px]"
+          style={{ background: "rgba(255,255,255,0.03)" }}
         >
           {/* Header with back */}
           <div className="flex items-center gap-3 shrink-0">
@@ -115,7 +115,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
           </div>
 
           {/* Logo + Branding */}
-          <div className="mt-6 flex flex-col items-center gap-3">
+            <div className="mt-5 flex flex-col items-center gap-3">
             <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500/20 to-rose-500/10 border border-white/10 overflow-hidden">
               <img src="/logo.png" alt="NoteUp" className="h-10 w-10 object-contain" />
             </div>
@@ -126,7 +126,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
           </div>
 
           {/* Form */}
-          <div className="mt-6 flex flex-1 flex-col gap-3.5">
+          <div className="mt-6 flex flex-1 flex-col gap-4">
             {/* School Code */}
             <div>
               <label className="mb-1.5 block text-xs font-medium tracking-wide text-white/40">School Code</label>
@@ -137,7 +137,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
                   onChange={(e) => setSchoolCode(e.target.value.toUpperCase())}
                   placeholder="e.g. STU, SPR, RIV"
                   maxLength={6}
-                  className="h-[46px] w-full rounded-2xl border border-white/[0.06] bg-white/[0.04] px-4 pr-9 text-sm text-white/80 placeholder-white/20 backdrop-blur-xl transition-all duration-200 focus:border-amber-500/40 focus:bg-white/[0.06] focus:outline-none focus:shadow-[0_0_20px_rgba(234,179,8,0.08)]"
+                  className="h-[48px] w-full rounded-2xl border border-white/[0.08] bg-white/[0.05] px-4 pr-9 text-sm text-white/80 placeholder-white/20 backdrop-blur-xl transition-all duration-200 focus:border-amber-500/40 focus:bg-white/[0.06] focus:outline-none focus:shadow-[0_0_20px_rgba(234,179,8,0.12)]"
                 />
                 {code.length >= 3 && school && (
                   <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -148,7 +148,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
                 )}
               </div>
               {code.length >= 3 && school && (
-                <div className="mt-1.5 flex items-center gap-1.5">
+                <div className="mt-2 flex items-center gap-1.5">
                   <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-amber-500/30 to-rose-500/20 text-[8px] font-bold text-amber-300/80">
                     {school.initial}
                   </div>
@@ -165,7 +165,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
                 value={teacherId}
                 onChange={(e) => setTeacherId(e.target.value)}
                 placeholder="Enter your teacher ID"
-                className="h-[46px] w-full rounded-2xl border border-white/[0.06] bg-white/[0.04] px-4 text-sm text-white/80 placeholder-white/20 backdrop-blur-xl transition-all duration-200 focus:border-amber-500/40 focus:bg-white/[0.06] focus:outline-none focus:shadow-[0_0_20px_rgba(234,179,8,0.08)]"
+                className="h-[48px] w-full rounded-2xl border border-white/[0.08] bg-white/[0.05] px-4 text-sm text-white/80 placeholder-white/20 backdrop-blur-xl transition-all duration-200 focus:border-amber-500/40 focus:bg-white/[0.06] focus:outline-none focus:shadow-[0_0_20px_rgba(234,179,8,0.12)]"
               />
             </div>
 
@@ -178,7 +178,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="h-[46px] w-full rounded-2xl border border-white/[0.06] bg-white/[0.04] px-4 pr-10 text-sm text-white/80 placeholder-white/20 backdrop-blur-xl transition-all duration-200 focus:border-amber-500/40 focus:bg-white/[0.06] focus:outline-none focus:shadow-[0_0_20px_rgba(234,179,8,0.08)]"
+                  className="h-[48px] w-full rounded-2xl border border-white/[0.08] bg-white/[0.05] px-4 pr-10 text-sm text-white/80 placeholder-white/20 backdrop-blur-xl transition-all duration-200 focus:border-amber-500/40 focus:bg-white/[0.06] focus:outline-none focus:shadow-[0_0_20px_rgba(234,179,8,0.12)]"
                 />
                 <button
                   type="button"
@@ -191,7 +191,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
             </div>
 
             {/* Teacher feature pills */}
-            <div className="mt-2 grid grid-cols-2 gap-2">
+            <div className="mt-3 grid grid-cols-2 gap-2.5">
               <FeaturePill
                 icon={
                   <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
@@ -236,7 +236,7 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
           </div>
 
           {/* Login button */}
-          <div className="flex flex-col gap-2.5 pt-3 shrink-0">
+          <div className="flex flex-col gap-3 pt-4 shrink-0">
             <button
               disabled={!schoolCode || !teacherId || !password}
               className={`relative h-[52px] w-full overflow-hidden rounded-2xl text-base font-semibold tracking-wide transition-all duration-300 ${
@@ -245,10 +245,10 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
                   : "bg-white/[0.04] text-white/20"
               }`}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              <span className="absolute inset-0 bg-gradient-to-r from-white/15 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
               Login
             </button>
-            <div className="flex items-center justify-center gap-1.5 mt-0.5">
+            <div className="flex items-center justify-center gap-1.5 mt-1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 text-white/15">
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />

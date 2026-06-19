@@ -123,13 +123,13 @@ export function CreateAccountScreen({ onBack }: CreateAccountScreenProps) {
         <style>{`
           .orb-1, .orb-2, .orb-3 {
             position: absolute; border-radius: 50%;
-            filter: blur(80px); opacity: 0.45;
+            filter: blur(80px); opacity: 0.6;
             animation: orb-float 8s ease-in-out infinite;
             pointer-events: none;
           }
-          .orb-1 { width: 280px; height: 280px; background: #7c3aed; top: -80px; left: -60px; }
-          .orb-2 { width: 220px; height: 220px; background: #3b82f6; bottom: 120px; right: -60px; animation-delay: -3s; }
-          .orb-3 { width: 180px; height: 180px; background: #8b5cf6; bottom: -50px; left: 30px; animation-delay: -5s; }
+          .orb-1 { width: 300px; height: 300px; background: #7c3aed; top: -100px; left: -80px; }
+          .orb-2 { width: 240px; height: 240px; background: #3b82f6; bottom: 120px; right: -80px; animation-delay: -3s; }
+          .orb-3 { width: 200px; height: 200px; background: #8b5cf6; bottom: -60px; left: 20px; animation-delay: -5s; }
           .scrollbar-none::-webkit-scrollbar { display: none; }
           .scrollbar-none { scrollbar-width: none; }
         `}</style>
@@ -138,8 +138,8 @@ export function CreateAccountScreen({ onBack }: CreateAccountScreenProps) {
 
         <div
           ref={containerRef}
-          className="relative z-10 flex h-full w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[10px]"
-          style={{ background: "rgba(255,255,255,0.02)" }}
+          className="relative z-10 flex min-h-screen w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[12px]"
+          style={{ background: "rgba(255,255,255,0.035)" }}
         >
           {/* Header */}
           <div className="flex items-center gap-3 shrink-0">
@@ -159,7 +159,7 @@ export function CreateAccountScreen({ onBack }: CreateAccountScreenProps) {
           </div>
 
           {/* Scrollable form */}
-          <div className="mt-5 flex flex-1 flex-col gap-4 overflow-y-auto pb-2 scrollbar-none">
+          <div className="mt-6 flex flex-1 flex-col gap-5 overflow-y-auto pb-3 scrollbar-none">
             {/* Photo upload */}
             <div className="flex flex-col items-center gap-2">
               <button
@@ -402,7 +402,7 @@ export function CreateAccountScreen({ onBack }: CreateAccountScreenProps) {
                   : "bg-white/[0.04] text-white/20"
               }`}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              <span className="absolute inset-0 bg-gradient-to-r from-white/15 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
               Create Account
             </button>
           </div>

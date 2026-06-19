@@ -126,25 +126,25 @@ export function RoleSelectionScreen({ onBack, onContinue }: RoleSelectionScreenP
       <div className="orb-2" />
       <div className="orb-3" />
 
-      <style>{`
-        .orb-1, .orb-2, .orb-3 {
-          position: absolute; border-radius: 50%;
-          filter: blur(80px); opacity: 0.45;
-          animation: orb-float 8s ease-in-out infinite;
-          pointer-events: none;
-        }
-        .orb-1 { width: 280px; height: 280px; background: #7c3aed; top: -80px; left: -60px; }
-        .orb-2 { width: 220px; height: 220px; background: #3b82f6; bottom: 120px; right: -60px; animation-delay: -3s; }
-        .orb-3 { width: 180px; height: 180px; background: #8b5cf6; bottom: -50px; left: 30px; animation-delay: -5s; }
-      `}</style>
+        <style>{`
+          .orb-1, .orb-2, .orb-3 {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); opacity: 0.6;
+            animation: orb-float 8s ease-in-out infinite;
+            pointer-events: none;
+          }
+          .orb-1 { width: 300px; height: 300px; background: #7c3aed; top: -100px; left: -80px; }
+          .orb-2 { width: 240px; height: 240px; background: #3b82f6; bottom: 120px; right: -80px; animation-delay: -3s; }
+          .orb-3 { width: 200px; height: 200px; background: #8b5cf6; bottom: -60px; left: 20px; animation-delay: -5s; }
+        `}</style>
 
       <CampusBuildings />
       <ParticleField />
 
       <div
         ref={containerRef}
-        className="relative z-10 flex h-full w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[10px]"
-        style={{ background: "rgba(255,255,255,0.02)" }}
+        className="relative z-10 flex min-h-screen w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[12px]"
+        style={{ background: "rgba(255,255,255,0.035)" }}
       >
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -171,10 +171,10 @@ export function RoleSelectionScreen({ onBack, onContinue }: RoleSelectionScreenP
               <button
                 key={role.id}
                 onClick={() => setSelectedRole(role.id)}
-                className={`relative w-full rounded-2xl border p-4 text-left backdrop-blur-2xl transition-all duration-300 ${
+                className={`relative w-full rounded-2xl border p-5 text-left backdrop-blur-2xl transition-all duration-300 ${
                   isSelected
-                    ? "border-purple-500/40 bg-white/[0.06] shadow-[0_0_24px_rgba(124,58,237,0.15)]"
-                    : "border-white/[0.05] bg-white/[0.03] hover:bg-white/[0.05]"
+                    ? "border-purple-500/50 bg-white/[0.08] shadow-[0_0_24px_rgba(124,58,237,0.25)]"
+                    : "border-white/[0.06] bg-white/[0.04] hover:bg-white/[0.06]"
                 }`}
               >
                 <div className="flex items-start gap-3.5">
@@ -188,10 +188,10 @@ export function RoleSelectionScreen({ onBack, onContinue }: RoleSelectionScreenP
                     {role.icon(isSelected)}
                   </div>
                   <div className="flex-1">
-                    <h3 className={`text-sm font-semibold ${isSelected ? "text-white" : "text-white/70"}`}>
+                    <h3 className={`text-sm font-semibold ${isSelected ? "text-white" : "text-white/80"}`}>
                       {role.label}
                     </h3>
-                    <p className={`mt-0.5 text-xs leading-relaxed ${isSelected ? "text-white/50" : "text-white/30"}`}>
+                    <p className={`mt-1 text-xs leading-relaxed ${isSelected ? "text-white/55" : "text-white/35"}`}>
                       {role.description}
                     </p>
                   </div>
@@ -224,7 +224,7 @@ export function RoleSelectionScreen({ onBack, onContinue }: RoleSelectionScreenP
             }`}
           >
             {selectedRole ? (
-              <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              <span className="absolute inset-0 bg-gradient-to-r from-white/15 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
             ) : null}
             Continue
           </button>

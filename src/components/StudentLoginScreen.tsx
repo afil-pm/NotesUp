@@ -80,13 +80,13 @@ export function StudentLoginScreen({ onBack, onCreateAccount }: StudentLoginScre
         <style>{`
           .orb-1, .orb-2, .orb-3 {
             position: absolute; border-radius: 50%;
-            filter: blur(80px); opacity: 0.45;
+            filter: blur(80px); opacity: 0.6;
             animation: orb-float 8s ease-in-out infinite;
             pointer-events: none;
           }
-          .orb-1 { width: 280px; height: 280px; background: #7c3aed; top: -80px; left: -60px; }
-          .orb-2 { width: 220px; height: 220px; background: #3b82f6; bottom: 120px; right: -60px; animation-delay: -3s; }
-          .orb-3 { width: 180px; height: 180px; background: #8b5cf6; bottom: -50px; left: 30px; animation-delay: -5s; }
+          .orb-1 { width: 300px; height: 300px; background: #7c3aed; top: -100px; left: -80px; }
+          .orb-2 { width: 240px; height: 240px; background: #3b82f6; bottom: 120px; right: -80px; animation-delay: -3s; }
+          .orb-3 { width: 200px; height: 200px; background: #8b5cf6; bottom: -60px; left: 20px; animation-delay: -5s; }
           @keyframes fade-in { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
           .animate-in { animation: fade-in 0.4s ease-out; }
         `}</style>
@@ -95,8 +95,8 @@ export function StudentLoginScreen({ onBack, onCreateAccount }: StudentLoginScre
 
         <div
           ref={containerRef}
-          className="relative z-10 flex h-full w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[10px]"
-          style={{ background: "rgba(255,255,255,0.02)" }}
+          className="relative z-10 flex min-h-screen w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[12px]"
+          style={{ background: "rgba(255,255,255,0.035)" }}
         >
           {/* Header */}
           <div className="flex items-center gap-3">
@@ -131,7 +131,7 @@ export function StudentLoginScreen({ onBack, onCreateAccount }: StudentLoginScre
               )}
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               {/* School Code */}
               <div>
                 <label className="mb-1.5 block text-xs font-medium text-white/40 tracking-wide">School Code</label>
@@ -216,7 +216,7 @@ export function StudentLoginScreen({ onBack, onCreateAccount }: StudentLoginScre
           {/* Buttons */}
           <div className="flex flex-col gap-2.5">
             <button className="relative h-[52px] w-full overflow-hidden rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 text-base font-semibold tracking-wide text-white shadow-[0_8px_32px_rgba(124,58,237,0.3)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(124,58,237,0.4)] active:scale-[0.96]">
-              <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              <span className="absolute inset-0 bg-gradient-to-r from-white/15 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
               Login
             </button>
             <button

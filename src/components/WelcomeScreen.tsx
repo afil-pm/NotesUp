@@ -44,13 +44,13 @@ export function WelcomeScreen({ onGetStarted }: WelcomeScreenProps) {
         <style>{`
           .orb-1, .orb-2, .orb-3 {
             position: absolute; border-radius: 50%;
-            filter: blur(80px); opacity: 0.45;
+            filter: blur(80px); opacity: 0.6;
             animation: orb-float 8s ease-in-out infinite;
             pointer-events: none;
           }
-          .orb-1 { width: 280px; height: 280px; background: #7c3aed; top: -80px; left: -60px; }
-          .orb-2 { width: 220px; height: 220px; background: #3b82f6; bottom: 120px; right: -60px; animation-delay: -3s; }
-          .orb-3 { width: 180px; height: 180px; background: #8b5cf6; bottom: -50px; left: 30px; animation-delay: -5s; }
+          .orb-1 { width: 300px; height: 300px; background: #7c3aed; top: -100px; left: -80px; }
+          .orb-2 { width: 240px; height: 240px; background: #3b82f6; bottom: 120px; right: -80px; animation-delay: -3s; }
+          .orb-3 { width: 200px; height: 200px; background: #8b5cf6; bottom: -60px; left: 20px; animation-delay: -5s; }
           .glow-dot {
             position: absolute; width: 6px; height: 6px; border-radius: 50%;
             background: #7c3aed; filter: blur(3px);
@@ -71,52 +71,52 @@ export function WelcomeScreen({ onGetStarted }: WelcomeScreenProps) {
         <ParticleField />
 
         <div
-          className="relative z-10 flex h-full w-full flex-col items-center justify-between px-8 pb-9 pt-[60px] backdrop-blur-[14px]"
-          style={{ background: "rgba(255,255,255,0.02)" }}
+          className="relative z-10 flex min-h-screen w-full flex-col items-center justify-between px-6 pb-8 pt-[52px] backdrop-blur-[12px]"
+          style={{ background: "rgba(255,255,255,0.035)" }}
         >
-          <div className="mt-7 flex flex-col items-center">
-            <div className="relative mb-5 flex h-20 w-20 items-center justify-center rounded-[22px] bg-gradient-to-br from-purple-500 to-blue-500 text-4xl font-bold tracking-tight text-white shadow-[0_12px_48px_rgba(124,58,237,0.35)]">
+            <div className="flex flex-col items-center">
+            <div className="relative flex h-20 w-20 items-center justify-center rounded-[22px] bg-gradient-to-br from-purple-500 to-blue-500 text-4xl font-bold tracking-tight text-white shadow-[0_12px_48px_rgba(124,58,237,0.5)]">
               <span className="relative z-10">N</span>
               <div className="pointer-events-none absolute inset-0 rounded-[22px] bg-gradient-to-br from-white/35 to-transparent p-[1.5px] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] [-webkit-mask-composite:xor] [mask-composite:exclude]" />
             </div>
             <h1 className="bg-gradient-to-r from-purple-200 to-blue-200 bg-clip-text text-[40px] font-bold tracking-tight text-transparent">
               NoteUp
             </h1>
-            <p className="mt-1.5 text-[17px] font-medium tracking-wide text-white/45">
+            <p className="mt-1.5 text-[17px] font-medium tracking-wide text-white/55">
               Every Note Matters
             </p>
-            <p className="mt-1 text-[13px] tracking-wide text-white/25">
+            <p className="mt-1.5 text-[13px] tracking-wide text-white/35">
               Never miss a class again
             </p>
           </div>
 
           <div className="flex w-full flex-1 items-center justify-center">
-            <div className="flex w-full flex-col gap-3">
+            <div className="flex w-full flex-col gap-3.5">
               <FeatureCard icon={<NoteIcon />} bgClass="bg-purple-500/18" title="Smart Capture" description="Encrypted notes in real-time" />
               <FeatureCard icon={<WifiIcon />} bgClass="bg-blue-500/18" title="Zero-Trust Sync" description="End-to-end encrypted cloud" />
               <FeatureCard icon={<LockIcon />} bgClass="bg-indigo-500/18" title="Zero-Knowledge Security" description="Only you hold the key" />
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-3.5">
-            <div className="flex w-full flex-col gap-2.5">
+          <div className="flex w-full flex-col items-center gap-4">
+            <div className="flex w-full flex-col gap-3">
               <button
                 onClick={onGetStarted}
-                className="relative h-[54px] w-full overflow-hidden rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 text-base font-semibold tracking-wide text-white shadow-[0_8px_32px_rgba(124,58,237,0.3)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_44px_rgba(124,58,237,0.4)] active:scale-[0.96]"
+                className="relative h-[52px] w-full overflow-hidden rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 text-base font-semibold tracking-wide text-white shadow-[0_8px_32px_rgba(124,58,237,0.4)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_44px_rgba(124,58,237,0.5)] active:scale-[0.96]"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+                <span className="absolute inset-0 bg-gradient-to-r from-white/15 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
                 Get Started
               </button>
               <button
                 onClick={onGetStarted}
-                className="h-[54px] w-full rounded-2xl border border-white/[0.07] bg-white/[0.04] text-base font-medium tracking-wide text-white/60 backdrop-blur-xl transition-all duration-200 hover:border-white/[0.14] hover:bg-white/[0.09] hover:text-white active:scale-[0.96]"
+                className="h-[52px] w-full rounded-2xl border border-white/[0.08] bg-white/[0.05] text-base font-medium tracking-wide text-white/70 backdrop-blur-xl transition-all duration-200 hover:border-white/[0.16] hover:bg-white/[0.1] hover:text-white active:scale-[0.96]"
               >
                 Sign In
               </button>
             </div>
-            <div className="mt-1 flex gap-6">
-              <a href="#" className="text-[11px] font-medium tracking-wide text-white/20 transition-colors hover:text-white/50">Privacy Policy</a>
-              <a href="#" className="text-[11px] font-medium tracking-wide text-white/20 transition-colors hover:text-white/50">Terms & Conditions</a>
+            <div className="flex gap-6">
+              <a href="#" className="text-[11px] font-medium tracking-wide text-white/25 transition-colors hover:text-white/50">Privacy Policy</a>
+              <a href="#" className="text-[11px] font-medium tracking-wide text-white/25 transition-colors hover:text-white/50">Terms & Conditions</a>
             </div>
           </div>
         </div>
