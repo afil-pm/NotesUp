@@ -118,124 +118,122 @@ export function RoleSelectionScreen({ onBack, onContinue }: RoleSelectionScreenP
   }, []);
 
   return (
-    <main className="flex h-screen w-screen items-center justify-center overflow-hidden bg-[#0a0a1a] font-sans select-none">
+    <main
+      className="relative flex min-h-screen w-full flex-col overflow-hidden font-sans select-none shadow-[0_0_80px_rgba(100,60,255,0.15),inset_0_0_1px_rgba(255,255,255,0.08)]"
+      style={{ background: "linear-gradient(145deg, #0d0d2b 0%, #1a0a2e 40%, #0f0f3a 100%)" }}
+    >
+      <div className="orb-1" />
+      <div className="orb-2" />
+      <div className="orb-3" />
+
+      <style>{`
+        .orb-1, .orb-2, .orb-3 {
+          position: absolute; border-radius: 50%;
+          filter: blur(80px); opacity: 0.45;
+          animation: orb-float 8s ease-in-out infinite;
+          pointer-events: none;
+        }
+        .orb-1 { width: 280px; height: 280px; background: #7c3aed; top: -80px; left: -60px; }
+        .orb-2 { width: 220px; height: 220px; background: #3b82f6; bottom: 120px; right: -60px; animation-delay: -3s; }
+        .orb-3 { width: 180px; height: 180px; background: #8b5cf6; bottom: -50px; left: 30px; animation-delay: -5s; }
+      `}</style>
+
+      <CampusBuildings />
+      <ParticleField />
+
       <div
-        className="relative flex h-[844px] w-[390px] flex-col items-center overflow-hidden rounded-[44px] shadow-[0_0_80px_rgba(100,60,255,0.15),inset_0_0_1px_rgba(255,255,255,0.08)]"
-        style={{ background: "linear-gradient(145deg, #0d0d2b 0%, #1a0a2e 40%, #0f0f3a 100%)" }}
+        ref={containerRef}
+        className="relative z-10 flex h-full w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[10px]"
+        style={{ background: "rgba(255,255,255,0.02)" }}
       >
-        <div className="orb-1" />
-        <div className="orb-2" />
-        <div className="orb-3" />
-
-        <style>{`
-          .orb-1, .orb-2, .orb-3 {
-            position: absolute; border-radius: 50%;
-            filter: blur(80px); opacity: 0.45;
-            animation: orb-float 8s ease-in-out infinite;
-            pointer-events: none;
-          }
-          .orb-1 { width: 280px; height: 280px; background: #7c3aed; top: -80px; left: -60px; }
-          .orb-2 { width: 220px; height: 220px; background: #3b82f6; bottom: 120px; right: -60px; animation-delay: -3s; }
-          .orb-3 { width: 180px; height: 180px; background: #8b5cf6; bottom: -50px; left: 30px; animation-delay: -5s; }
-        `}</style>
-
-        <CampusBuildings />
-        <ParticleField />
-
-        <div
-          ref={containerRef}
-          className="relative z-10 flex h-full w-full flex-col px-6 pb-8 pt-[52px] backdrop-blur-[10px]"
-          style={{ background: "rgba(255,255,255,0.02)" }}
-        >
-          {/* Header */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onBack}
-              className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-white/50 backdrop-blur-md transition-colors hover:border-white/[0.12] hover:text-white/80"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                <path d="M19 12H5" />
-                <polyline points="12 19 5 12 12 5" />
-              </svg>
-            </button>
-            <div>
-              <h1 className="text-xl font-bold tracking-tight text-white/90">Choose Your Role</h1>
-              <p className="text-xs text-white/30">Select how you&apos;ll use NoteUp</p>
-            </div>
+        {/* Header */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onBack}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-white/50 backdrop-blur-md transition-colors hover:border-white/[0.12] hover:text-white/80"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+              <path d="M19 12H5" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+          </button>
+          <div>
+            <h1 className="text-xl font-bold tracking-tight text-white/90">Choose Your Role</h1>
+            <p className="text-xs text-white/30">Select how you&apos;ll use NoteUp</p>
           </div>
+        </div>
 
-          {/* Role cards */}
-          <div className="mt-6 flex flex-1 flex-col gap-3 overflow-y-auto pb-2 scrollbar-none">
-            {roles.map((role) => {
-              const isSelected = selectedRole === role.id;
-              return (
-                <button
-                  key={role.id}
-                  onClick={() => setSelectedRole(role.id)}
-                  className={`relative w-full rounded-2xl border p-4 text-left backdrop-blur-2xl transition-all duration-300 ${
-                    isSelected
-                      ? "border-purple-500/40 bg-white/[0.06] shadow-[0_0_24px_rgba(124,58,237,0.15)]"
-                      : "border-white/[0.05] bg-white/[0.03] hover:bg-white/[0.05]"
-                  }`}
-                >
-                  <div className="flex items-start gap-3.5">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${
-                        isSelected
-                          ? "from-purple-500/30 to-blue-500/20 shadow-[0_0_12px_rgba(124,58,237,0.2)]"
-                          : "from-white/[0.06] to-white/[0.02]"
-                      }`}
-                    >
-                      {role.icon(isSelected)}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`text-sm font-semibold ${isSelected ? "text-white" : "text-white/70"}`}>
-                        {role.label}
-                      </h3>
-                      <p className={`mt-0.5 text-xs leading-relaxed ${isSelected ? "text-white/50" : "text-white/30"}`}>
-                        {role.description}
-                      </p>
-                    </div>
-                    <div className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+        {/* Role cards */}
+        <div className="mt-6 flex flex-1 flex-col gap-3 overflow-y-auto pb-2 scrollbar-none">
+          {roles.map((role) => {
+            const isSelected = selectedRole === role.id;
+            return (
+              <button
+                key={role.id}
+                onClick={() => setSelectedRole(role.id)}
+                className={`relative w-full rounded-2xl border p-4 text-left backdrop-blur-2xl transition-all duration-300 ${
+                  isSelected
+                    ? "border-purple-500/40 bg-white/[0.06] shadow-[0_0_24px_rgba(124,58,237,0.15)]"
+                    : "border-white/[0.05] bg-white/[0.03] hover:bg-white/[0.05]"
+                }`}
+              >
+                <div className="flex items-start gap-3.5">
+                  <div
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${
                       isSelected
-                        ? "border-purple-400 bg-purple-500/30"
-                        : "border-white/[0.12]"
-                    }`}>
-                      {isSelected && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      )}
-                    </div>
+                        ? "from-purple-500/30 to-blue-500/20 shadow-[0_0_12px_rgba(124,58,237,0.2)]"
+                        : "from-white/[0.06] to-white/[0.02]"
+                    }`}
+                  >
+                    {role.icon(isSelected)}
                   </div>
-                </button>
-              );
-            })}
-          </div>
+                  <div className="flex-1">
+                    <h3 className={`text-sm font-semibold ${isSelected ? "text-white" : "text-white/70"}`}>
+                      {role.label}
+                    </h3>
+                    <p className={`mt-0.5 text-xs leading-relaxed ${isSelected ? "text-white/50" : "text-white/30"}`}>
+                      {role.description}
+                    </p>
+                  </div>
+                  <div className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                    isSelected
+                      ? "border-purple-400 bg-purple-500/30"
+                      : "border-white/[0.12]"
+                  }`}>
+                    {isSelected && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
 
-          {/* Footer */}
-          <div className="flex flex-col gap-2.5 pt-2">
-            <button
-              onClick={() => selectedRole && onContinue(selectedRole)}
-              disabled={!selectedRole}
-              className={`relative h-[52px] w-full overflow-hidden rounded-2xl text-base font-semibold tracking-wide transition-all duration-300 ${
-                selectedRole
-                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-[0_8px_32px_rgba(124,58,237,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(124,58,237,0.4)] active:scale-[0.96]"
-                  : "bg-white/[0.04] text-white/20"
-              }`}
-            >
-              {selectedRole ? (
-                <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
-              ) : null}
-              Continue
-            </button>
-            <button
-              onClick={onBack}
-              className="text-center text-xs font-medium tracking-wide text-white/20 transition-colors hover:text-white/50"
-            >
-              Back to Welcome
-            </button>
-          </div>
+        {/* Footer */}
+        <div className="flex flex-col gap-2.5 pt-2">
+          <button
+            onClick={() => selectedRole && onContinue(selectedRole)}
+            disabled={!selectedRole}
+            className={`relative h-[52px] w-full overflow-hidden rounded-2xl text-base font-semibold tracking-wide transition-all duration-300 ${
+              selectedRole
+                ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-[0_8px_32px_rgba(124,58,237,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(124,58,237,0.4)] active:scale-[0.96]"
+                : "bg-white/[0.04] text-white/20"
+            }`}
+          >
+            {selectedRole ? (
+              <span className="absolute inset-0 bg-gradient-to-r from-white/12 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+            ) : null}
+            Continue
+          </button>
+          <button
+            onClick={onBack}
+            className="text-center text-xs font-medium tracking-wide text-white/20 transition-colors hover:text-white/50"
+          >
+            Back to Welcome
+          </button>
         </div>
       </div>
     </main>

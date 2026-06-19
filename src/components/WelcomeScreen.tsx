@@ -33,11 +33,10 @@ interface WelcomeScreenProps {
 export function WelcomeScreen({ onGetStarted }: WelcomeScreenProps) {
 
   return (
-    <main className="flex h-screen w-screen items-center justify-center overflow-hidden bg-[#0a0a1a] font-sans select-none">
-      <div
-        className="relative flex h-[844px] w-[390px] flex-col items-center overflow-hidden rounded-[44px] shadow-[0_0_80px_rgba(100,60,255,0.15),inset_0_0_1px_rgba(255,255,255,0.08)]"
-        style={{ background: "linear-gradient(145deg, #0d0d2b 0%, #1a0a2e 40%, #0f0f3a 100%)" }}
-      >
+    <main
+      className="relative flex min-h-screen w-full flex-col overflow-hidden font-sans select-none shadow-[0_0_80px_rgba(100,60,255,0.15),inset_0_0_1px_rgba(255,255,255,0.08)]"
+      style={{ background: "linear-gradient(145deg, #0d0d2b 0%, #1a0a2e 40%, #0f0f3a 100%)" }}
+    >
         <div className="orb-1" />
         <div className="orb-2" />
         <div className="orb-3" />
@@ -122,7 +121,6 @@ export function WelcomeScreen({ onGetStarted }: WelcomeScreenProps) {
           </div>
         </div>
 
-      </div>
     </main>
   );
 }

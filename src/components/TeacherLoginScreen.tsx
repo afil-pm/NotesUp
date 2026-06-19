@@ -65,9 +65,9 @@ export function TeacherLoginScreen({ onBack }: TeacherLoginScreenProps) {
   const school = schoolLogos[code];
 
   return (
-    <main className="flex h-screen w-screen items-center justify-center overflow-hidden bg-[#0a0a1a] font-sans select-none">
+    <main className="flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a1a] font-sans select-none">
       <div
-        className="relative flex h-[844px] w-[390px] flex-col items-center overflow-hidden rounded-[44px] shadow-[0_0_80px_rgba(255,120,100,0.12),inset_0_0_1px_rgba(255,255,255,0.06)]"
+        className="relative flex min-h-screen w-full flex-col items-center overflow-hidden shadow-[0_0_80px_rgba(255,120,100,0.12),inset_0_0_1px_rgba(255,255,255,0.06)]"
         style={{ background: "linear-gradient(145deg, #1a0f1a 0%, #1f1028 35%, #0f0f1a 100%)" }}
       >
         {/* Warm gradient orbs */}
